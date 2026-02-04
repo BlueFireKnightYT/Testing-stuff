@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6742735918427477019}
   - component: {fileID: 8926248953992787760}
   - component: {fileID: 1878441305807256751}
-  - component: {fileID: 8631530599360175006}
+  - component: {fileID: 3341005888203854594}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -108,7 +108,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 0a6e9296a52103c4c94925a620baf479, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -120,8 +120,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &8631530599360175006
-BoxCollider2D:
+--- !u!58 &3341005888203854594
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -155,14 +155,4 @@ BoxCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
