@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.UIElements;
 
 public class Movement : MonoBehaviour
 {
@@ -11,10 +12,26 @@ public class Movement : MonoBehaviour
     [SerializeField] float jumpH = 7f;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundCheck;
-    
+
+    [SerializeField] GameObject shootPos;
+    public bullet bulletCode;
+    Vector2 baseShootPos;
+    private void Start()
+    {
+        baseShootPos = shootPos.transform.position;
+    }
     private void Update()
     {
         rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocityY);
+
+        if (horizontal < 0)
+        {
+            transform.rotation = Quaternion.Euler(180, 0, 0);
+        }
+        else if (horizontal > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
     public void OnMove(InputAction.CallbackContext context)
     {
