@@ -15,11 +15,8 @@ public class Movement : MonoBehaviour
 
     [SerializeField] GameObject shootPos;
     public bullet bulletCode;
-    Vector2 baseShootPos;
-    private void Start()
-    {
-        baseShootPos = shootPos.transform.position;
-    }
+    public bool flipped = false;
+
     private void Update()
     {
         rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocityY);
@@ -27,39 +24,19 @@ public class Movement : MonoBehaviour
         if (horizontal < 0)
         {
             transform.rotation = Quaternion.Euler(180, 0, 0);
+            shootPos.transform.localPosition = new Vector2(-1, 0);
+            flipped = true;
         }
         else if (horizontal > 0)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
+            shootPos.transform.localPosition = new Vector2(1, 0);
+            flipped = false;
         }
     }
     public void OnMove(InputAction.CallbackContext context)
     {
         horizontal = context.ReadValue<Vector2>().x;
-    }
-
-
-    public bool isGrounded()
-    {
-        var hits = Physics2D.OverlapCapsuleAll
-        (
-            groundCheck.position,
-            new Vector2(1f, 0.5f),
-            CapsuleDirection2D.Horizontal,
-            0f,
-            groundLayer
-        );
-
-        return hits.Length > 0;
-    }
-
-
-    public void Jump(InputAction.CallbackContext context)
-    {
-        if (context.performed && isGrounded() == true)
-        {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpH);
-        }
     }
 }
 
