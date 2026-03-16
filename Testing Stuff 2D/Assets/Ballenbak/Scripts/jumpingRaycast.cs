@@ -25,6 +25,7 @@ public class jumpingRaycast : MonoBehaviour
         if (hit)
         {
             canJump = true;
+            Debug.Log(hit.collider.name);
             extraJumps = baseExtraJumps;
         }
         else
@@ -45,7 +46,6 @@ public class jumpingRaycast : MonoBehaviour
     
     public void Jump(InputAction.CallbackContext context)
     {
-        //checktt input
         if (context.performed)
         {
             if (canJump)
