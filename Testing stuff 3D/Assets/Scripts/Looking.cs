@@ -18,12 +18,12 @@ public class Looking : MonoBehaviour
     private void LateUpdate()
     {
         float mouseX = lookInput.x * sensitivity;
-        float mouseY = lookInput.y * sensitivity;
+        //float mouseY = lookInput.y * sensitivity;
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90, 90);
+        //xRotation -= mouseY;
+        //xRotation = Mathf.Clamp(xRotation, -90, 90);
 
-        cam.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+        //cam.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
         transform.Rotate(Vector3.up * mouseX);
     }
 
