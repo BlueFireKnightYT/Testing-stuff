@@ -11,7 +11,7 @@ public class ShootScript : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, shootPoint);
+        GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
         Renderer renderer = bullet.GetComponent<Renderer>();
         Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
 
