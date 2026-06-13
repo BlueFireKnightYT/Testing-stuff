@@ -3,8 +3,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] float moveSpeed;
+    float moveSpeed;
     Vector2 moveInput;
+    [SerializeField] PlayerStatsSO playerStatsSO;
 
     Rigidbody rb;
 
@@ -15,6 +16,7 @@ public class PlayerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
+        moveSpeed = playerStatsSO.speed;
         Vector3 moveDir = transform.forward * moveInput.y + transform.right * moveInput.x;
 
         rb.linearVelocity = new Vector3(moveDir.x * moveSpeed, rb.linearVelocity.y, moveDir.z * moveSpeed);

@@ -5,7 +5,7 @@ public class Looking : MonoBehaviour
 {
     Vector2 lookInput;
     public float sensitivity;
-    float xRotation = 0f;
+    //float xRotation = 0f;
 
     GameObject cam;
     private void Start()
